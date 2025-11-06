@@ -14,7 +14,7 @@ from api.admin import setup_admin
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
-CORS(api)
+CORS(api, supports_credentials=True, origins="*")
 
 
 @api.route('/hello', methods=['POST', 'GET'])
@@ -77,7 +77,6 @@ def login():
     return jsonify({"token": token, "msg": "Login exitoso"}), 200
 
 
-# Protege una ruta con jwt_required, bloquea las peticiones sin un JWT válido
 
 @api.route("/profile", methods=["GET"])
 @jwt_required()

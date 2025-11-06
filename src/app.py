@@ -23,7 +23,7 @@ CORS(app, supports_credentials=True)
 app.url_map.strict_slashes = False
 # ¡Cambia las palabras "super-secret" por otra cosa!
 app.config["JWT_SECRET_KEY"] = "password"
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=1)
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=20)
 
 jwt = JWTManager(app)
 # database condiguration

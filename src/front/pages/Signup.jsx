@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { register } from "../api";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -12,6 +14,7 @@ export const Signup = () => {
             alert(result.error);
         } else {
             alert(result.msg);
+            navigate("/login")
         }
     };
 

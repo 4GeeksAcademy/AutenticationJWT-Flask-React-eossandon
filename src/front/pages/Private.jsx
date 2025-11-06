@@ -18,25 +18,22 @@ const Private = () => {
         const fetchProfile = async () => {
             const data = await getProfile(token);
 
-            if (data.msg === "Token inválido" || data.msg === "Token expirado") {
+            if (!data) {
                 localStorage.removeItem("token");
                 navigate("/login");
-            } else {
-                setProfile(data);
+                return;
             }
+
+            setProfile(data);
         };
 
         fetchProfile();
     }, [navigate]);
 
+
     return (
-        <div className="container mt-5">
-            <h1>Zona Privada</h1>
-            {profile ? (
-                <p>Bienvenido: {profile.useremail}</p>
-            ) : (
-                <p>Cargando...</p>
-            )}
+        <div className="container mt-5 d-flex justify-content-center align-content-center">
+            <h1>Bienvenid@ a Zona Privada</h1>
         </div>
     );
 };

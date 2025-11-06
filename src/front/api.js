@@ -1,7 +1,7 @@
-const API_URL =
-  "https://expert-space-chainsaw-7x4q4g9jjq6h66x-3001.app.github.dev/api";
+const API_URL = "https://glowing-lamp-59p6pwq7jvgcv7jg-3001.app.github.dev/api";
 
 export async function register(email, password) {
+  console.log(API_URL);
   const res = await fetch(`${API_URL}/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
